@@ -3,6 +3,10 @@ const modules = [
 ]
 const proxy = {}
 if (process.env.NODE_ENV === 'production') {
+  // modules.push(['@nuxtjs/google-analytics', {
+  //   id: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+  // }])
+} else {
   modules.push('@nuxtjs/proxy')
 
   proxy['contact']  = 'http://localhost:9000'
@@ -73,19 +77,19 @@ module.exports = {
   axios: {
     baseURL: process.env.API_URL,
   },
-  // generate: {
-  //   routes (callback) {
-  //     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-  //     stripe.products.list(
-  //       {},
-  //       function(err, products) {
-  //         const routes = products.data.map((product) => {
-  //           return `/p/${product.id}`
-  //         })
-  //         callback(null, routes)
-  //       }
-  //     );
-  //   }
-  // },
+  generate: {
+    routes (callback) {
+      const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+      stripe.products.list(
+        {},
+        function(err, products) {
+          const routes = products.data.map((product) => {
+            return `/p/${product.id}`
+          })
+          callback(null, routes)
+        }
+      );
+    }
+  },
 }
 
