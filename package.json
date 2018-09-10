@@ -1,0 +1,44 @@
+{
+  "name": "mymentor",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Yuki Nakamura <nakamura.yuuki.0606@gmail.com>",
+  "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "3334"
+    }
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "lambda": "netlify-lambda serve lambda",
+    "build": "netlify-lambda build lambda && nuxt build",
+    "start": "nuxt start",
+    "generate": "netlify-lambda build lambda && nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/proxy": "^1.2.4",
+    "buefy": "^0.6.6",
+    "email-validator": "^2.0.4",
+    "file-loader": "^2.0.0",
+    "netlify-lambda": "^0.4.0",
+    "node-sass": "^4.9.3",
+    "nuxt": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "stripe": "^6.10.0",
+    "vee-validate": "^2.1.0-beta.8",
+    "vue-scrollto": "^2.11.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}

@@ -1,0 +1,121 @@
+// Navbar
+.navbar {
+    &.is-fixed-top.is-fadein {
+        animation:navbarShow 1s both;
+        & + main {
+            margin-top: 5rem;
+        }
+    }
+
+
+    .navbar-brand {
+      .navbar-brand__title {
+        font-size: 2rem;
+      }
+      .navbar-burger {
+          height: 5rem;
+          width: 5rem;
+      }
+    }
+  
+    .navbar-menu {
+        & > .navbar-start, & > .navbar-end {
+            a {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@keyframes navbarShow {
+	0% {
+		transform:translate(0, -10rem);
+		opacity:0;
+	}
+	100% {
+		transform:translate(0, 0);
+		opacity:1;
+	}
+}
+
+// Image
+.image {
+    &.is-circle > img {
+        border-radius: 50%;
+    }
+}
+
+// breadcrumb
+.breadcrumb {
+    &.is-bg-white {
+        padding: 1rem;
+        background: #fff;
+        margin-bottom: 0;
+    }
+
+    &.has-shadow {
+        box-shadow: 0 2px 0 0 #f5f5f5;
+    }
+}
+
+// button
+.button {
+    &.is-circle {
+        border-radius: 10rem;
+        width: 2.25em;
+        height: 2.25em;
+    }
+}
+
+// tag
+$tag-colors: (
+    "primary": $primary,
+    "info": $info,
+    "success": $success,
+    "warning": $warning,
+    "danger": $danger,
+);
+
+.tag {
+    @each $key, $color in $tag-colors {
+        &.is-#{$key}.is-outlined {
+            background-color: transparent;
+            border-color: map-get($tag-colors, $key);
+            color: map-get($tag-colors, $key);
+            border: 1px solid;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .breadcrumb {
+        ul {
+            & > li.is-active {
+                & > a {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1087px) {
+    .navbar-burger span:nth-child(1) {
+        top: calc(50% - 7px);
+    }
+    .navbar-burger span:nth-child(3) {
+        top: calc(50% + 6px);
+    }
+    .navbar-menu {
+        background-color: $primary;
+        color: $white;
+
+        .navbar-item, .navbar-link {
+            color: $white;
+        }
+        a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.is-active {
+            background-color: $primary;
+            color: $white;
+        }
+    }
+}
