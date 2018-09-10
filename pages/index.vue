@@ -64,10 +64,10 @@ import CardGoodProduct from '~/components/Card/Good/Product.vue'
 
 export default {
   async asyncData ({ app }) {
-    const products = await app.$axios.$get('/products');
-    console.log(products);
+    // const products = await app.$axios.$get('/products');
+    // console.log(products);
     return {
-      products: products,
+      products: [],
     }
   },
   components: {
