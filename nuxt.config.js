@@ -1,3 +1,15 @@
+const modules = [
+  '@nuxtjs/axios'
+]
+const proxy = {}
+if (process.env.NODE_ENV === 'production') {
+  modules.push('@nuxtjs/proxy')
+
+  proxy['contact']  = 'http://localhost:9000'
+  proxy['products'] = 'http://localhost:9000'
+  proxy['product']  = 'http://localhost:9000'
+}
+
 module.exports = {
   env: {
     API_URL: process.env.API_URL,
@@ -57,12 +69,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
   ],
-  proxy: {
-    '/contact':   'http://localhost:9000',
-    '/products':  'http://localhost:9000',
-    '/product':   'http://localhost:9000',
-  },
-  // axiosの設定を追加
+  proxy: proxy,
   axios: {
     baseURL: process.env.API_URL,
   },
