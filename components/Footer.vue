@@ -19,7 +19,7 @@
           </ul>
         </div>
         <div class="column is-3">
-          <h3 class="menu__label"> Connect </h3>
+          <h3 class="menu__label"> Social </h3>
           <ul class="menu-list">
             <li> <a href="https://twitter.com/nakanakamu0828" target="_blank" title="Nakamu on Twitter">Twitter</a> </li>
             <li> <a href="https://github.com/nakanakamu0828" target="_blank" title="Nakamu on Github">Github</a> </li>
