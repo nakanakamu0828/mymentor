@@ -9,9 +9,9 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   modules.push('@nuxtjs/proxy')
 
-  proxy['contact']  = 'http://localhost:9000'
-  proxy['products'] = 'http://localhost:9000'
-  proxy['product']  = 'http://localhost:9000'
+  proxy['/contact']  = 'http://localhost:9000'
+  proxy['/products'] = 'http://localhost:9000'
+  proxy['/product']  = 'http://localhost:9000'
 }
 
 module.exports = {

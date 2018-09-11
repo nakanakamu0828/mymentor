@@ -21,7 +21,7 @@
         <div class="columns is-vcentered">
           <div class="column is-6">
             <h1 class="title is-3 m-b-40" v-text="product.name"></h1>
-            <h2 class="subtitle is-5" v-html="product.description"></h2>
+            <h2 class="subtitle is-6" v-html="product.description"></h2>
             <p>
               <span class="sr-only">価格</span>
               <strong class="is-size-3"><span class="is-size-2">¥</span>{{ product.metadata.price }}</strong>

@@ -64,8 +64,12 @@ import CardGoodProduct from '~/components/Card/Good/Product.vue'
 
 export default {
   async asyncData ({ app }) {
-    const products = await app.$axios.$get('/products');
-    console.log(products);
+    let products = []
+    try {
+      products = await app.$axios.$get('/products');
+    } catch(err) {
+      console.error(err);
+    }
     return {
       products: products,
     }
