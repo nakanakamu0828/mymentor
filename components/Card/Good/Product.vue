@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <span data-purpose="badge" class="on-course-card badge badge-accented yellow">ベストセラー</span>
+        <!-- <span data-purpose="badge" class="on-course-card badge badge-accented yellow">ベストセラー</span> -->
     </div>
 </template>
 
