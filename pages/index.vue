@@ -14,7 +14,7 @@
           Mentor Plan
         </h2>
         <p class="subtitle has-text-grey has-text-centered is-7">
-          メンタープラン
+          必要な時に購入できるメンタープランですです
         </p>
 
         <div class="columns">
