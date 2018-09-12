@@ -66,10 +66,8 @@ export default {
     }
   },
   async asyncData ({ app, params }) {
-    // const product = await app.$axios.$get(`/product?id=${params.id}`);
-    // const skus = await app.$axios.$get(`/skus?product=${params.id}`);
-    const product = null;
-    const skus = [];
+    const product = await app.$axios.$get(`/product?id=${params.id}`);
+    const skus = await app.$axios.$get(`/skus?product=${params.id}`);
     return {
       product: product,
       skus: skus,
