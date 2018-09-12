@@ -45,7 +45,7 @@
             <p class="title is-4 has-text-centered m-t-10 m-b-30">
               メンタープランの選択
             </p>
-            <p class="subtitle has-text-centered is-6">
+            <p class="subtitle has-text-centered is-6 m-b-20">
               求めているスキルにあったメンタープランを選択します
             </p>
           </div>
@@ -59,7 +59,7 @@
             <p class="title is-4 has-text-centered m-t-10 m-b-30">
               選択したプランを購入
             </p>
-            <p class="subtitle has-text-centered is-6">
+            <p class="subtitle has-text-centered is-6 m-b-20">
               クレジットカード決済を利用してプランを購入します。Stripeを利用した決済になります。
             </p>
           </div>
@@ -73,7 +73,7 @@
             <p class="title is-4 has-text-centered m-t-10 m-b-30">
               メールによるご連絡
             </p>
-            <p class="subtitle has-text-centered is-6">
+            <p class="subtitle has-text-centered is-6 m-b-20">
               購入時にご登録頂いたメールアドレスにご連絡差し上げます。その後、Slackにてメンタリングスタートします。
             </p>
           </div>
@@ -154,7 +154,7 @@ export default {
 .floating-number {
     position: absolute;
     top: -1.5rem;
-    left: auto;
+    left: 4.5rem;
     font-size: 1.3rem;
     font-weight: 900;
     color: #09a4b8;
