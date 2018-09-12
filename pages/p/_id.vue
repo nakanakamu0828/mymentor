@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-if="product">
     
     <nav class="breadcrumb is-bg-white has-succeeds-separator has-shadow" aria-label="breadcrumbs">
       <div class="container">
@@ -66,8 +66,10 @@ export default {
     }
   },
   async asyncData ({ app, params }) {
-    const product = await app.$axios.$get(`/product?id=${params.id}`);
-    const skus = await app.$axios.$get(`/skus?product=${params.id}`);
+    // const product = await app.$axios.$get(`/product?id=${params.id}`);
+    // const skus = await app.$axios.$get(`/skus?product=${params.id}`);
+    const product = null;
+    const skus = [];
     return {
       product: product,
       skus: skus,
