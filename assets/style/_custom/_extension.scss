@@ -60,6 +60,12 @@
 
 // button
 .button {
+    &:hover {
+        -webkit-transform: scale(1.02) translateY(-2px);
+        transform: scale(1.02) translateY(-2px);
+    }
+
+    
     &.is-circle {
         border-radius: 10rem;
         width: 2.25em;

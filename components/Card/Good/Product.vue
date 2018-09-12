@@ -1,25 +1,29 @@
 <template>
-    <div class="card is-radius">
+    <nuxt-link class="card is-radius" :to="{ name: 'p-id', params: { id: product.id }}">
         <div class="card-image">
-            <nuxt-link class="image" :to="{ name: 'p-id', params: { id: product.id }}">
+            <picture class="image">
                 <img :src="product.images[0]" :alt="product.name">
-            </nuxt-link>
-            </div>
-            <div class="card-content">
-            <p class="title is-4 m-b-10" v-text="product.name"></p>
+            </picture>
+        </div>
+        <div class="card-content">
+            <p
+                :to="{ name: 'p-id', params: { id: product.id }}"
+                class="title is-4 m-b-10 is-block"
+                v-text="product.name">
+            </p>
             <div class="content is-size-7" v-html="product.description"></div>
 
-            <div class="media" v-if="!product.metadata.price">
+            <!-- <div class="media" v-if="!product.metadata.price">
                 <div class="media-content">
                 </div>
                 <div class="media-right">
                     <span class="sr-only">価格</span>
                     <strong class="is-size-4">¥{{ product.metadata.price }}</strong>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- <span data-purpose="badge" class="on-course-card badge badge-accented yellow">ベストセラー</span> -->
-    </div>
+    </nuxt-link>
 </template>
 
 <script>
@@ -29,6 +33,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+    &:hover {
+        transform: scale(1.025);
+    }
+}
 
 .badge {
     padding: 2px 6px;

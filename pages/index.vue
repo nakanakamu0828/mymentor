@@ -24,6 +24,62 @@
           </div>
         </div>
       </section>
+
+
+      <section class="section">
+        <h2 class="title has-text-dark is-underline has-text-centered font-leckerli-one">
+          How to Use
+        </h2>
+        <p class="subtitle has-text-grey has-text-centered is-7">
+          メンターの利用方法について
+        </p>
+
+        <div class="columns m-t-50">
+
+          <div class="column is-4">
+
+            <div class="icon-container has-text-centered">
+              <span class="floating-number">１</span>
+              <img src="~/assets/img/icon-accept.png">
+            </div>
+            <p class="title is-4 has-text-centered m-t-10 m-b-30">
+              メンタープランの選択
+            </p>
+            <p class="subtitle has-text-centered is-6">
+              求めているスキルにあったメンタープランを選択します
+            </p>
+          </div>
+
+          <div class="column is-4">
+
+            <div class="icon-container has-text-centered">
+              <span class="floating-number">２</span>
+              <img src="~/assets/img/icon-total-cart.png">
+            </div>
+            <p class="title is-4 has-text-centered m-t-10 m-b-30">
+              選択したプランを購入
+            </p>
+            <p class="subtitle has-text-centered is-6">
+              クレジットカード決済を利用してプランを購入します。Stripeを利用した決済になります。
+            </p>
+          </div>
+
+          <div class="column is-4">
+
+            <div class="icon-container has-text-centered">
+              <span class="floating-number">３</span>
+              <img src="~/assets/img/icon-read.png">
+            </div>
+            <p class="title is-4 has-text-centered m-t-10 m-b-30">
+              メールによるご連絡
+            </p>
+            <p class="subtitle has-text-centered is-6">
+              購入時にご登録頂いたメールアドレスにご連絡差し上げます。その後、Slackにてメンタリングスタートします。
+            </p>
+          </div>
+
+        </div>
+      </section>
     </div>
 
     <section class="hero is-primary is-primary--light is-medium">
@@ -89,6 +145,24 @@ export default {
 <style lang="scss" scoped>
 .is-primary--light {
   background-color: #EEF5FF;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.floating-number {
+    position: absolute;
+    top: -1.5rem;
+    left: auto;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #09a4b8;
+
+    & + img {
+      width: 8rem;
+      height: 8rem;
+    }
 }
 </style>
 
