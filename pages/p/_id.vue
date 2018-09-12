@@ -58,7 +58,7 @@
                 <p>
                   <strong v-text="sku.attributes.period"></strong><br>
                   <span class="sr-only">価格</span>
-                  <strong class="is-size-3"><span class="is-size-2">¥</span>{{ sku.price }}</strong>
+                  <strong class="is-size-3">{{ priceFormat(sku.price, sku.currency) }}</strong>
                   <a
                     class="button is-primary is-large is-circle is-outlined is-pulled-right"
                     href="javascript:void(0)"
@@ -101,6 +101,13 @@ export default {
     },
   },
   methods: {
+    priceFormat: function (price, currency = 'JPY') {
+      const formatter = new Intl.NumberFormat('ja-JP', {
+        style: 'currency',
+        currency: currency
+      });
+      return formatter.format(price);
+    }
   },
   components: {
   }
