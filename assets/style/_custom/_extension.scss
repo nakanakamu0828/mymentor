@@ -73,6 +73,51 @@
     }
 }
 
+
+.button-group {
+    .button:not(.is-square) {
+        border-radius: 0;
+        margin: 0 1px;
+        &:first-child {
+            border-top-left-radius: $control-radius;
+            border-bottom-left-radius: $control-radius;
+            margin-left: 0;
+        }
+
+        &:last-child {
+            border-top-right-radius: $control-radius;
+            border-bottom-right-radius: $control-radius;
+            margin-right: 0;
+        }
+    }
+  
+    &.level {
+        .level-item {
+            .button:not(.is-square) {
+                border-radius: 0;
+                margin: 0 1px;
+            }
+    
+            &:first-child {
+                .button {
+                    border-top-left-radius: $control-radius;
+                    border-bottom-left-radius: $control-radius;
+                    margin-left: 0;
+                }
+            }
+    
+            &:last-child {
+                .button {
+                    border-top-right-radius: $control-radius;
+                    border-bottom-right-radius: $control-radius;
+                    margin-right: 0;
+            }
+            }
+        }
+    }
+}
+
+
 // tag
 $tag-colors: (
     "primary": $primary,
