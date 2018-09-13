@@ -77,17 +77,37 @@
 </template>
 
 <script>
+
+const initData = async ({ app, params }) => {
+  const [ product, skus ] = await Promise.all([
+    app.$axios.$get(`/product?id=${params.id}`),
+    app.$axios.$get(`/skus?product=${params.id}`),
+  ])
+  return {
+    product: product,
+    skus: skus,
+  }
+}
+
 export default {
-  async asyncData ({ env, params }) {
-    return {
+  async asyncData (context) {
+    if (process.browser) {
+      return {
+        products: null,
+        skus: [],
+      }
     }
+    return await initData(context);
   },
-  async asyncData ({ app, params }) {
-    const product = await app.$axios.$get(`/product?id=${params.id}`);
-    const skus = await app.$axios.$get(`/skus?product=${params.id}`);
-    return {
-      product: product,
-      skus: skus,
+  async mounted () {
+    if (this.$store.getters.isFirstView) {
+      this.$store.dispatch('setFirstView', {
+          firstView: false
+      });
+    } else {
+      const { products, skus } = await initData({ app: this, params: this.$route.params });
+      this.products = products;
+      this.skus = skus;
     }
   },
   computed: {
@@ -115,5 +135,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

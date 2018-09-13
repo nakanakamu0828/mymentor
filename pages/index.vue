@@ -142,16 +142,30 @@
 import CardServiceProduct from '~/components/Card/Service/Product.vue'
 import CardGoodProduct from '~/components/Card/Good/Product.vue'
 
-export default {
-  async asyncData ({ app }) {
-    let products = []
-    try {
-      products = await app.$axios.$get('/products');
-    } catch(err) {
-      console.error(err);
-    }
+const initData = async ({ app, params }) => {
+    let products = await app.$axios.$get('/products');
     return {
       products: products,
+    }
+}
+
+export default {
+  async asyncData (context) {
+    if (process.browser) {
+      return {
+        products: []
+      }
+    }
+    return await initData(context);
+  },
+  async mounted () {
+    if (this.$store.getters.isFirstView) {
+      this.$store.dispatch('setFirstView', {
+          firstView: false
+      });
+    } else {
+      const { products } = await initData({ app: this, params: this.$route.params });
+      this.products = products;
     }
   },
   components: {

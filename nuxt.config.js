@@ -19,7 +19,6 @@ module.exports = {
   env: {
     API_URL: process.env.API_URL,
     BASE_URL: process.env.BASE_URL,
-
   },
   /*
   ** Headers of the page
@@ -64,6 +63,7 @@ module.exports = {
     '~/plugins/buefy.js',
     '~/plugins/vue-scrollto.js',
     '~/plugins/vee-validate.js',
+    { src: '~/plugins/token.js', ssr: false }
   ],
   css: [
     '~/assets/style/app.scss',
