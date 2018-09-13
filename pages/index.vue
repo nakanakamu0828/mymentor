@@ -1,14 +1,38 @@
 <template>
   <main>
+    <section id="introduction" class="hero is-medium">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-half">
+              <h1 class="title is-1 m-b-40 has-text-dark">
+                <div class="font-leckerli-one m-b-10">
+                  Nakamu <span class="has-text-primary">Mentor</span>
+                </div>
+                <p class="is-size-4">
+                  プログラマミングをサポートしていきます
+                </p>
+              </h1>
+              <p class="subtitle">
+                <span class="shadow is-primary">Webデベロッパー</span>/
+                <span class="shadow is-danger">Laravel デベロッパー</span>/
+                <span class="shadow is-warning">Rails デベロッパー</span>/
+                <span class="shadow is-success">Codeメンター</span>
+
+                として活動しています。<br>
+                今ままでの開発経験を生かして、プログラミング初学者に向けメンターをしてきます。
+                本サイトでは私が提供できるメンタープランの紹介と契約を行うことができます。
+              </p>
+            </div>
+            <div class="column is-half">
+              <img src="~/assets/img/top-image-business.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="container">
-      <!-- <section class="section">
-        <p class="title">
-          <strong class="has-text-info">Welcome</strong> to our awesome market
-        </p>
-        <p class="subtitle">Below you will find your latests products</p>
-      </section> -->
-
-
       <section class="section">
         <h2 class="title has-text-dark is-underline has-text-centered font-leckerli-one">
           Mentor Plan
@@ -143,6 +167,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#introduction {
+  .subtitle {
+    line-height: 1.5;
+  }
+}
+
+
 .is-primary--light {
   background-color: #EEF5FF;
 }
