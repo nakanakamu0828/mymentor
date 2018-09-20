@@ -32,6 +32,8 @@ $link-focus-border: $primary;
 
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+@import "~bulma-extensions/bulma-badge/src/sass/index";
+@import "~bulma-extensions/bulma-steps/src/sass/index";
 
 @import "_custom/_utility";
 @import "_custom/_extension";

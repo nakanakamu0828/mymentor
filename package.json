@@ -24,6 +24,7 @@
     "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/proxy": "^1.2.4",
     "buefy": "^0.6.6",
+    "bulma-extensions": "^3.0.0",
     "email-validator": "^2.0.4",
     "file-loader": "^2.0.0",
     "netlify-lambda": "^0.4.0",
@@ -33,7 +34,9 @@
     "stripe": "^6.10.0",
     "url-loader": "^1.1.1",
     "vee-validate": "^2.1.0-beta.8",
-    "vue-scrollto": "^2.11.0"
+    "vue-scrollto": "^2.11.0",
+    "vue-stripe-elements-plus": "^0.2.9",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

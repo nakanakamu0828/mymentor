@@ -47,29 +47,7 @@
           </div>
         </div>
 
-        <div class="box" v-for="(sku, index) in skus" :key="index">
-          <article class="media">
-            <div class="media-left" v-if="sku.image">
-              <picture class="image is-64x64">
-              </picture>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong v-text="sku.attributes.period"></strong><br>
-                  <span class="sr-only">価格</span>
-                  <strong class="is-size-3">{{ priceFormat(sku.price, sku.currency) }}</strong>
-                  <a
-                    class="button is-primary is-large is-circle is-outlined is-pulled-right"
-                    href="javascript:void(0)"
-                  >
-                    <i class="fas fa-cart-plus"></i> 
-                  </a>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
+        <BoxProductSku :product="product" :sku="sku" v-for="(sku, index) in skus" :key="index" />
       </section>
     </div>
     
@@ -77,6 +55,7 @@
 </template>
 
 <script>
+import BoxProductSku from '~/components/Box/Product/Sku.vue'
 
 const initData = async ({ app, params }) => {
   const [ product, skus ] = await Promise.all([
@@ -85,7 +64,10 @@ const initData = async ({ app, params }) => {
   ])
   return {
     product: product,
-    skus: skus,
+    skus: skus.map((s) => {
+      s['product'] = product
+      return s
+    }),
   }
 }
 
@@ -93,7 +75,7 @@ export default {
   async asyncData (context) {
     if (process.browser) {
       return {
-        products: null,
+        product: null,
         skus: [],
       }
     }
@@ -105,8 +87,8 @@ export default {
           firstView: false
       });
     } else {
-      const { products, skus } = await initData({ app: this, params: this.$route.params });
-      this.products = products;
+      const { product, skus } = await initData({ app: this, params: this.$route.params });
+      this.product = product;
       this.skus = skus;
     }
   },
@@ -120,16 +102,8 @@ export default {
       return `https://www.facebook.com/sharer/sharer.php?u=${url}`
     },
   },
-  methods: {
-    priceFormat: function (price, currency = 'JPY') {
-      const formatter = new Intl.NumberFormat('ja-JP', {
-        style: 'currency',
-        currency: currency
-      });
-      return formatter.format(price);
-    }
-  },
   components: {
+    BoxProductSku,
   }
 }
 </script>

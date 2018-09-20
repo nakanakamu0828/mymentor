@@ -19,6 +19,7 @@ module.exports = {
   env: {
     API_URL: process.env.API_URL,
     BASE_URL: process.env.BASE_URL,
+    STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
   },
   /*
   ** Headers of the page
@@ -35,6 +36,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://js.stripe.com/v3/' }
     ]
   },
   /*
@@ -63,6 +67,7 @@ module.exports = {
     '~/plugins/buefy.js',
     '~/plugins/vue-scrollto.js',
     '~/plugins/vee-validate.js',
+    { src: '~plugins/localStorage.js', ssr: false },
     { src: '~/plugins/token.js', ssr: false }
   ],
   css: [
@@ -72,10 +77,7 @@ module.exports = {
     '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css',
     '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css',
   ],
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy',
-  ],
+  modules: modules,
   proxy: proxy,
   axios: {
     baseURL: process.env.API_URL,

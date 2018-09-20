@@ -1,21 +1,20 @@
 import Vuex from 'vuex';
+import contact from '~/store/modules/contact/index.js';
+import cart from '~/store/modules/cart/index.js';
+import checkout from '~/store/modules/checkout/index.js';
 
 const store = () => new Vuex.Store({
+  modules: {
+    contact,
+    cart,
+    checkout,
+  },
   state: {
     firstView: null,
-    contactModal: false,
   },
   mutations: {
     setFirstView(state, context) {
       state.firstView = context.firstView;
-    },
-    toggleContactModal(state) {
-      state.contactModal = !state.contactModal;
-      document.querySelector('html').classList.toggle('is-clipped');
-    },
-    closeContactModal(state) {
-      state.contactModal = false;
-      document.querySelector('html').classList.remove('is-clipped');
     },
   },
   actions: {
@@ -25,18 +24,10 @@ const store = () => new Vuex.Store({
         firstView: payload.firstView
       })
     },
-    toggleContactModal: ({ commit }) => {
-      commit('toggleContactModal');
-    },
-    closeContactModal: ({ commit }) => {
-      commit('closeContactModal');
-    },
   },
   getters: {
     isFirstView: state => state.firstView,
-    isContactModal: state => state.contactModal,
   },
 })
-
 
 export default store

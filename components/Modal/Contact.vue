@@ -139,13 +139,13 @@ export default {
   },
   computed: {
     modal() {
-      return this.$store.getters.isContactModal;
+      return this.$store.getters['contact/isContactModal'];
     },
   },
   methods: {
     closeModal() {
       this.input = true;
-      this.$store.dispatch('closeContactModal');
+      this.$store.dispatch('contact/closeContactModal');
     },
     validateBeforeSubmit() {
       this.$validator.validateAll().then((result) => {

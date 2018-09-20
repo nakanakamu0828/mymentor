@@ -174,7 +174,7 @@ export default {
   },
   methods: {
     toggleContactModal() {
-      this.$store.dispatch('toggleContactModal');
+      this.$store.dispatch('contact/toggleContactModal');
     },
   }
 }
@@ -208,6 +208,12 @@ export default {
       width: 8rem;
       height: 8rem;
     }
+}
+
+@media screen and (min-width: 769px) {
+  h1.title {
+    font-size: 2.5rem;
+  }
 }
 </style>
 
