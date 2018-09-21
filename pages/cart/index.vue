@@ -57,7 +57,15 @@
         </div>
       </div>
       <div v-else>
-
+        <div class="m-b-50 has-text-centered">
+          <h3 class="title has-text-grey m-b-40">購入ありがとうございます。</h3>
+          <p class="subtitle">
+            購入時に入力頂いたメールアドレスにメンターからご連絡差し上げます。<br>
+          </p>
+          <router-link to="/" class="button is-primary is-outlined is-rounded is-large">
+            <i class="fas fa-search"></i> &nbsp;Homeに戻る
+          </router-link>
+        </div>
       </div>
     </div>
 

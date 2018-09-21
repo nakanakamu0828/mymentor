@@ -59,6 +59,7 @@
                                 <Card class='stripe-card'
                                       :class="{ 'complete': isStripeCardCompleted }"
                                       :stripe="stripePublishableKey"
+                                      :options='stripeOptions'
                                       @change="setIsStripeCardCompleted($event.complete)"
                                     />
                               </div>
@@ -96,17 +97,16 @@ export default {
     total: {
       type: [Number, String],
       required: true
-    },
-    stripeUrl: {
-      type: String,
-      default: STRIPE_URL
     }
   },
   data() {
     return {
       name: undefined,
       email: undefined,
-      stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY
+      stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+      stripeOptions: {
+        hidePostalCode: true
+      }
     }
   },
   computed: {
@@ -129,8 +129,7 @@ export default {
       await this.pay({
         name: this.name,
         email: this.email,
-        total: this.total,
-        url: this.stripeUrl
+        total: this.total
       })
     }
   },
