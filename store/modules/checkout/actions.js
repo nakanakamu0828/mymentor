@@ -7,28 +7,26 @@ export default {
   setStatus: ({ commit }, val) =>
     commit('SET_STATUS', val),
 
-  pay: async ({ commit, dispatch }, {name, email, total, url}) => {
+  pay: async ({ commit, dispatch }, {name, email, skus}) => {
     commit('SET_IS_LOADING', true)
 
     const { token } = await createToken()
 
     commit('SET_IS_SUBMITTED', true)
-
     try {
-      const { data: stripeResponse } = await axios.post(
-        url,
-        {
-          stripeEmail: userEmail,
-          stripeToken: token.id,
-          stripeAmt: total * 100 // must be in cent
-        },
-        {
-          headers: { 'Content-Type': 'application/json' }
-        }
-      )
+
+      console.log(token)
+
+      // const { data: stripeResponse } = await axios.$post('/order', {
+      //   name:   name,
+      //   email:  email,
+      //   skus:   skus,
+      // },
+      // {
+      //   headers: { 'Content-Type': 'application/json' }
+      // });
 
       commit('SET_STATUS', 'success')
-
       dispatch('cart/clearCount', null, { root: true })
       dispatch('cart/clearContents', null, { root: true })
       dispatch('cart/setSuccess', true, { root: true })
