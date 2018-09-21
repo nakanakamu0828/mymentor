@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createToken } from 'vue-stripe-elements-plus'
+axios.defaults.baseURL = process.env.API_URL
 
 export default {
   setIsStripeCardCompleted: ({ commit }, val) =>
