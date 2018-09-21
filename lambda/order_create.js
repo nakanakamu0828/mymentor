@@ -12,25 +12,20 @@ exports.handler = async (event, context, callback) => {
         return
     }
 
-    try {
-        const data = JSON.parse(event.body)
-        const order = await stripe.orders.create({
-            currency: 'jpy',
-            items: data.skus.map(function(sku) { return { type: 'sku', parent: sku } }),
-            email: data.email,
-            metadata: {
-                name: data.name,
-            }
-        });
-        console.log(order)
+    const data = JSON.parse(event.body)
+    const order = await stripe.orders.create({
+        currency: 'jpy',
+        items: data.skus.map(function(sku) { return { type: 'sku', parent: sku } }),
+        email: data.email,
+        metadata: {
+            name: data.name,
+        }
+    });
 
-        const payOrder = await stripe.orders.pay(order.id, {
-            source: data.token
-        })
-        console.log(payOrder);
-    } catch (err) {
-        statusCode = 401
-    }
+    const payOrder = await stripe.orders.pay(order.id, {
+        source: data.token
+    })
+    console.log(payOrder);
 
     callback(null, {
         statusCode: statusCode,

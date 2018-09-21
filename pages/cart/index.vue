@@ -29,15 +29,26 @@
             <div class="step-marker">
               1
             </div>
+            <div class="step-details">
+              <p class="step-title is-size-5">
+                <span class="is-hidden-mobile">ショッピング</span>カート
+              </p>
+            </div>
           </li>
           <li class="step-item" :class="[actualStep > 2 && 'is-completed', actualStep == 2 && 'is-active']">
             <div class="step-marker">
               2
             </div>
+            <div class="step-details">
+              <p class="step-title is-size-5">購入</p>
+            </div>
           </li>
           <li class="step-item" :class="[actualStep > 3 && 'is-completed', actualStep == 3 && 'is-active']">
             <div class="step-marker">
               3
+            </div>
+            <div class="step-details">
+              <p class="step-title is-size-5"><span class="is-hidden-mobile">手続き</span>完了</p>
             </div>
           </li>
         </ul>

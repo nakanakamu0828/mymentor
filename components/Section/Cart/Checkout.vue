@@ -65,7 +65,7 @@
                               </div>
                           </div>
 
-                          <button class="button is-success is-large is-rounded is-fullwidth m-t-50">
+                          <button class="button is-success is-large is-rounded is-fullwidth m-t-50" :class="{ 'is-loading': isLoading }">
                               購入
                           </button>
                       </div>
@@ -129,7 +129,7 @@ export default {
       await this.pay({
         name: this.name,
         email: this.email,
-        total: this.total
+        skus: Object.keys(this.$store.getters['cart/cart'])
       })
     }
   },

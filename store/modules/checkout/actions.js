@@ -14,17 +14,15 @@ export default {
 
     commit('SET_IS_SUBMITTED', true)
     try {
-
-      console.log(token)
-
-      // const { data: stripeResponse } = await axios.$post('/order', {
-      //   name:   name,
-      //   email:  email,
-      //   skus:   skus,
-      // },
-      // {
-      //   headers: { 'Content-Type': 'application/json' }
-      // });
+      const { data: stripeResponse } = await axios.post('/order_create', {
+        name:   name,
+        email:  email,
+        skus:   skus,
+        token:  token.id,
+      },
+      {
+        headers: { 'Content-Type': 'application/json' }
+      });
 
       commit('SET_STATUS', 'success')
       dispatch('cart/clearCount', null, { root: true })
@@ -35,6 +33,7 @@ export default {
       const { message: stripeResponseMessage } = stripeResponse
       commit('SET_RESPONSE', stripeResponseMessage)
     } catch (err) {
+      console.error(err)
       commit('SET_STATUS', 'failure')
       commit('SET_RESPONSE', `Error: ${JSON.stringify(err, null, 2)}`)
     }
