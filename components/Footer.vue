@@ -12,19 +12,43 @@
           </div>
         </div>
         <div class="column is-3">
-          <h3 class="menu__label"> About me</h3>
+          <h3 class="menu__label"> Contents</h3>
           <ul class="menu-list">
-            <li> <a href="https://nakamu.life" target="_blank" title="Nakamu on Profile">Profile</a> </li>
-            <li> <a href="https://blog.nakamu.life" target="_blank" title="Nakamu on Blog">Blog</a> </li>
+            <li>
+              <router-link to="/">
+                Home
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/policy/privacy">
+                プライバシーポリシー
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/term">
+                利用規約
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/law">
+                特定商取引法に基づく表記
+              </router-link>
+            </li>
+            <li>
+              <a
+                href="javascript:void(0)"
+                @click="$store.dispatch('contact/toggleContactModal')"
+              >
+                問い合わせ
+              </a>
+            </li>
           </ul>
         </div>
         <div class="column is-3">
-          <h3 class="menu__label"> Social </h3>
+          <h3 class="menu__label"> About me</h3>
           <ul class="menu-list">
-            <li> <a href="https://twitter.com/nakanakamu0828" target="_blank" title="Nakamu on Twitter">Twitter</a> </li>
-            <li> <a href="https://github.com/nakanakamu0828" target="_blank" title="Nakamu on Github">Github</a> </li>
-            <li> <a href="https://medium.com/@nakamu" target="_blank" title="Nakamu on Medium">Medium</a> </li>
-            <li> <a href="mailto:yuuki.nakamura.0828@gmail.com" target="_blank" title="Nakamu on Email">Email</a> </li>
+            <li> <a href="https://nakamu.life" target="_blank" title="Nakamu on Profile">運営者</a> </li>
+            <li> <a href="https://blog.nakamu.life" target="_blank" title="Nakamu on Blog">運営者ブログ</a> </li>
           </ul>
         </div>
       </div>

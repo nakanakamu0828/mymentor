@@ -124,7 +124,7 @@
                   <a
                     class="button is-primary is-large is-rounded is-outlined"
                     href="javascript:void(0)"
-                    @click="toggleContactModal"
+                    @click="$store.dispatch('contact/toggleContactModal')"
                   >
                     問い合わせ
                   </a>
@@ -171,11 +171,6 @@ export default {
   components: {
     CardServiceProduct,
     CardGoodProduct,
-  },
-  methods: {
-    toggleContactModal() {
-      this.$store.dispatch('contact/toggleContactModal');
-    },
   }
 }
 </script>
